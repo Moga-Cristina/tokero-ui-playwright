@@ -5,16 +5,18 @@ Repository created for Tokero UI Automated flows using **Playwright** and **xUni
 ## Prerequisites
 
 - [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) or later
-- Playwright CLI installed via:
+- [Playwright](https://playwright.dev/dotnet/docs/intro) CLI installed via:
 
 ```bash
+dotnet add package Microsoft.Playwright
+dotnet add package Microsoft.Playwright.Xunit
 dotnet tool install --global Microsoft.Playwright.CLI
 playwright install
+dotnet build
 ```
 
-_(Optional but recommended)_: Install the **.NET Core Test Explorer** extension in Visual Studio Code for a more visual test experience. It allows you to run, filter, and debug tests directly from the Test Explorer panel.  
+_(Optional but recommended)_: Install the **.NET Core Test Explorer** extension in VS Code for a more visual test experience. It allows you to run, filter, and debug tests directly from the Test Explorer panel.  
 [https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer]
-
 [ID] : formulahendry.dotnet-test-explorer
 
 ## Run Tests
@@ -22,11 +24,6 @@ _(Optional but recommended)_: Install the **.NET Core Test Explorer** extension 
 ```bash
 dotnet test
 ```
-
-Optional flags:
-
-- `--filter` to run specific tests
-- `--logger:trx` for CI reporting
 
 ## Project Structure
 
@@ -37,7 +34,7 @@ Folder/File Purpose
 `Helpers/LanguageHelper` - Language switching assertions  
 `Helpers/TestDataGenerator.cs` - Email/random helpers  
 `BasePage.cs` - Shared wrapper for context and page
-`Screenshots/` - Captured screenshots on failure (created automatically)
+`Screenshots/` - Captured screenshots on failure (created automatically if fail)
 
 ## Test Types Covered
 
@@ -47,7 +44,7 @@ Folder/File Purpose
 
 ## Documentation
 
-See the detailed report in `TestReport.docx`.
+See the detailed report `TestReport.docx` under docs folder.
 
 ## Author
 
